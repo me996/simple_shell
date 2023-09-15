@@ -3,7 +3,7 @@
  * main - simple shell
  *@ac: argument count
  *@av: array of arguments (strings)
- *return: 0 always success
+ *Return: 0 always success
  */
 int main(void argc, char **argv[])
 {
@@ -17,7 +17,7 @@ int main(void argc, char **argv[])
         line = read_cmd();
         cmd = spliter(line);
         status = _execve(cmd, argv);
-        
+
     }
 }
  
