@@ -5,18 +5,25 @@
  *@av: array of arguments (strings)
  *Return: 0 always success
  */
-int main(void argc, char **argv[])
+int main(int argc, char **argv)
 {
-    char *line = NULL;
-    char **cmd = NULL;
-    int status;
-    (void) ac;
-
+    char *cmd = NULL;
+    /*char **cmd = NULL;*/
+    int status = 0;
+    (void) argc;
+    (void) argv;
+    write(STDOUT_FILENO, "$ ", 2);
     while (1)
     {
-        line = read_cmd();
-        cmd = spliter(line);
-        status = _execve(cmd, argv);
+        cmd = read_cmd();
+        if (cmd == NULL) /*end of file*/
+        {
+            write(STDOUT_FILENO, "\n", 1);
+           return (status);
+        }
+        free (cmd);
+        /*cmd = spliter(line);*/
+        /*status = _execve(cmd, argv);*/
 
     }
 }

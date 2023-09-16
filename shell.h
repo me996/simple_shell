@@ -9,7 +9,8 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-int main(void argc, char **argv[]);
+int main(int argc, char **argv);
+char *read_cmd (void);
 
 
 
