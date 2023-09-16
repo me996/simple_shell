@@ -11,6 +11,7 @@
 
 int main(int argc, char **argv);
 char *read_cmd (void);
+char *_strdup(const char *s);
 
 
 
