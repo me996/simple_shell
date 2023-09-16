@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     char *cmd = NULL;
-    char **cmd = NULL;
+    char **command = NULL;
     int status = 0;
     (void) argc;
     write(STDOUT_FILENO, "$ ", 2);
@@ -21,8 +21,8 @@ int main(int argc, char **argv)
            return (status);
         }
         free (cmd);
-        cmd = spliter(line);
-        status = _execve(cmd, argv);
+        command = spliter(line);
+        /*status = _execve(cmd, argv);*/
 
     }
 }
