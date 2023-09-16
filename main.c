@@ -11,6 +11,7 @@ int main(int argc, char **argv)
     char **command = NULL;
     int status = 0;
     (void) argc;
+    (void) argv;
     write(STDOUT_FILENO, "$ ", 2);
     while (1)
     {
@@ -22,6 +23,8 @@ int main(int argc, char **argv)
         }
         free (cmd);
         command = spliter(line);
+        if (command == NULL)
+        continue;
         /*status = _execve(cmd, argv);*/
 
     }
