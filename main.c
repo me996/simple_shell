@@ -21,10 +21,10 @@ int main(int argc, char **argv)
             write(STDOUT_FILENO, "\n", 1);
            return (status);
         }
-        free (cmd);
         command = splitter(line);
-        if (command == NULL)
+        if (!command)
         continue;
+        
         for ( i = 0; command[i]; i++)
         printf("%s\n", command[i]);
         /*status = _execve(cmd, argv);*/
