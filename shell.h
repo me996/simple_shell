@@ -19,7 +19,7 @@ char *_strdup(const char *s);
 char *_strcat(char *dest,  char *src);
 int _strlen (char *s);
 char *_strpy(char *dest, char *src);
-char **splitter(char *line);
+
 
 
 

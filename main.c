@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     int i, status = 0;
     (void) argc;
     (void) argv;
-    write(STDOUT_FILENO, "$ ", 2);
+    
     while (1)
     {
         cmd = read_cmd();
@@ -27,8 +27,15 @@ int main(int argc, char **argv)
 
         for (i = 0; command[i]; i++)
         printf("%s\n", command[i]);
+        
+
+
+
+
+
+
+
         /*status = _execve(cmd, argv);*/
 
     }
 }
- 

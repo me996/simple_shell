@@ -1,9 +1,10 @@
 #include "shell.h"
+
 char **splitter(char *line)
 {
     char *token = NULL, *dup = NULL;
     char **command = NULL;
-    int cout = 0, i = 0;
+    int count = 0, i = 0;
     if (!line)
     return (NULL);
     dup = _strdup(line);
@@ -16,11 +17,11 @@ char **splitter(char *line)
     }
     while (token)
     {
-        cout++;
+        count++;
         token = strtok(NULL, DELIM);
     }
     free(dup), dup = NULL;
-    command = malloc (sizeof(char *) * (cout + 1));
+    command = malloc (sizeof(char *) * (count + 1));
     if (!command)
     {
         free(line), line = NULL;
@@ -37,4 +38,5 @@ char **splitter(char *line)
     command [i] = NULL; 
     return(command);
 }
+
 
