@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     char *cmd = NULL;
-    char **command = NULL, char *line = NULL;
+    char **command = NULL,*line = NULL;
     int i, status = 0;
     (void) argc;
     write(STDOUT_FILENO, "$ ", 2);
