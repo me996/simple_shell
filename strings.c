@@ -2,13 +2,12 @@
 char *_strdup(const char *s)
 {
     char *ptr;
-    int len = 0;
+    int  i, len = 0;
     if (s == NULL)
     return(NULL);
     while (*s != '0')
     {
         len++;
-        s;
     }
     s = s - len;
     ptr = malloc(sizeof(char) * (len + 1));
