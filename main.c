@@ -8,8 +8,8 @@
 int main(int argc, char **argv)
 {
     char *cmd = NULL;
-    char **command = NULL;
-    int status = 0;
+    char **command = NULL, char *line = NULL;
+    int i, status = 0;
     (void) argc;
     (void) argv;
     write(STDOUT_FILENO, "$ ", 2);
@@ -22,9 +22,11 @@ int main(int argc, char **argv)
            return (status);
         }
         free (cmd);
-        command = spliter(line);
+        command = splitter(line);
         if (command == NULL)
         continue;
+        for ( i = 0; command[i]; i++)
+        printf("%s\n", command[i]);
         /*status = _execve(cmd, argv);*/
 
     }
