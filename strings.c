@@ -1,4 +1,5 @@
 #include "shell.h"
+
 char *_strdup(const char *s)
 {
     char *ptr;
@@ -8,6 +9,7 @@ char *_strdup(const char *s)
     while (*s != '0')
     {
         len++;
+        s++;
     }
     s = s - len;
     ptr = malloc(sizeof(char) * (len + 1));

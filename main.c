@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     char *cmd = NULL;
-    char **command = NULL,*line = NULL;
+    char **command = NULL, *line = NULL;
     int i, status = 0;
     (void) argc;
     (void) argv;
@@ -24,8 +24,8 @@ int main(int argc, char **argv)
         command = splitter(line);
         if (!command)
         continue;
-        
-        for ( i = 0; command[i]; i++)
+
+        for (i = 0; command[i]; i++)
         printf("%s\n", command[i]);
         /*status = _execve(cmd, argv);*/
 
