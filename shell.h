@@ -14,9 +14,9 @@ int main(int argc, char **argv);
 char **splitter(char *line);
 
 char *read_cmd (void);
-char *strtok(char *str, const char *delim);
+char *strtok(char *str,  const char *delim);
 char *_strdup(const char *s);
-char *_strcat(char *dest, const char *src);
+char *_strcat(char *dest,  char *src);
 int _strlen (char *s);
 char *_strpy(char *dest, char *src);
 char **splitter(char *line);
