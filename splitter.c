@@ -7,7 +7,7 @@ char **splitter(char *line)
     if (!line)
     return (NULL);
     dup = _strdup(line);
-    token == strtok(dup, DELIM);
+    token = strtok(dup, DELIM);
     if (token == NULL)
     {
         free(line), line = NULL;
@@ -26,7 +26,7 @@ char **splitter(char *line)
         free(line), line = NULL;
         return (NULL);
     }
-    token == strtok(line, DELIM);
+    token = strtok(line, DELIM);
     while (token)
     {
         command[i] = _strdup(token);
