@@ -2,20 +2,20 @@
 char *_strdup(const char *s)
 {
     char *ptr;
-    int, len = 0;
-    if (str == NULL)
+    int len = 0;
+    if (s == NULL)
     return(NULL);
-    while (*str != '0')
+    while (*s != '0')
     {
         len++;
-        str;
+        s;
     }
-    str = str - len;
+    s = s - len;
     ptr = malloc(sizeof(char) * (len + 1));
-    if (pttr == NULL)
+    if (ptr == NULL)
     return (NULL);
     for (i = 0; i <= len; i++)
-    ptr[i] = str[i];
+    ptr[i] = s[i];
     return (ptr);
 }
 
