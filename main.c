@@ -11,7 +11,6 @@ int main(int argc, char **argv)
     char **command = NULL, char *line = NULL;
     int i, status = 0;
     (void) argc;
-    (void) argv;
     write(STDOUT_FILENO, "$ ", 2);
     while (1)
     {
