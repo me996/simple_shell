@@ -8,7 +8,7 @@
             "name": "DbgGTest",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/me996/simple_shell/readline.c",
+            "program": "/home/me996/simple_shell/splitter.c",
             "cwd": "/home/me996/simple_shell",
             "miDebuggerPath": "gdb",
             
