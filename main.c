@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         printf("%s\n", command[i]);
         free(command[i]), command[i] = NULL;
        }
-        
+        free(command), command = NULL;
 
 
 
