@@ -7,28 +7,29 @@
  */
 int main(int argc, char **argv)
 {
-    char *cmd = NULL, **command = NULL;
+    char *line = NULL, **command = NULL;
     int i, status = 0;
     (void) argc;
     (void) argv;
    
     while (1)
     {
-        cmd = read_cmd();
-        if (cmd == NULL) /*end of file*/
+        line = readline();
+        if (line == NULL) /*end of file*/
         {
             write(STDOUT_FILENO, "\n", 1);
            return (status);
         }
-       
-        command = tokenizer(cmd);
+        command = tokenizer(line);
         if (!command)
         continue;
 
-        for (i = 0; command[i]; i++)
+       for (i = 0; command[i]; i++)
+       {
         printf("%s\n", command[i]);
+        free(command[i]), command[i] = NULL;
+       }
         
-
 
 
 

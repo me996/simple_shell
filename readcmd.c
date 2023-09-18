@@ -1,16 +1,16 @@
 #include "shell.h"
-char *read_cmd (void)
+char *readline (void)
 {
-    char *cmd = NULL;
+    char *line = NULL;
     size_t len = 0;
     ssize_t n;
     write(STDOUT_FILENO, "$ ", 2);
-    n = getline(&cmd, &len, stdin);
+    n = getline(&line, &len, stdin);
    
     if (n == -1)
     {
-        free(cmd);
+        free(line);
         return(NULL);
     }
-return(cmd);
+return(line);
 }

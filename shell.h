@@ -11,14 +11,12 @@
 #define DELIM "\t\n"
 
 int main(int argc, char **argv);
-char **tokenizer(char *cmd);
+char **tokenizer(char *line);
 
-char *read_cmd (void);
-char *strtok(char *str,  const char *delim);
+char *readline (void);
+
 char *_strdup(const char *s);
-char *_strcat(char *dest,  char *src);
-int _strlen (char *s);
-char *_strpy(char *dest, char *src);
+
 
 
 
