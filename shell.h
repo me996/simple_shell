@@ -11,7 +11,7 @@
 #define DELIM "\t\n"
 
 int main(int argc, char **argv);
-char **splitter(char *line);
+char **tokenizer(char *cmd);
 
 char *read_cmd (void);
 char *strtok(char *str,  const char *delim);

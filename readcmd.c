@@ -6,6 +6,7 @@ char *read_cmd (void)
     ssize_t n;
     write(STDOUT_FILENO, "$ ", 2);
     n = getline(&cmd, &len, stdin);
+   
     if (n == -1)
     {
         free(cmd);

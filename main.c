@@ -7,12 +7,11 @@
  */
 int main(int argc, char **argv)
 {
-    char *cmd = NULL;
-    char **command = NULL, *line = NULL;
+    char *cmd = NULL, **command = NULL;
     int i, status = 0;
     (void) argc;
     (void) argv;
-    
+   
     while (1)
     {
         cmd = read_cmd();
@@ -21,7 +20,8 @@ int main(int argc, char **argv)
             write(STDOUT_FILENO, "\n", 1);
            return (status);
         }
-        command = splitter(line);
+       
+        command = tokenizer(cmd);
         if (!command)
         continue;
 

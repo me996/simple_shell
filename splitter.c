@@ -1,17 +1,17 @@
 #include "shell.h"
 
-char **splitter(char *line)
+char **tokenizer(char *cmd)
 {
     char *token = NULL, *dup = NULL;
     char **command = NULL;
     int count = 0, i = 0;
-    if (!line)
+    if (!cmd)
     return (NULL);
-    dup = _strdup(line);
+    dup = _strdup(cmd);
     token = strtok(dup, DELIM);
     if (token == NULL)
     {
-        free(line), line = NULL;
+        free(cmd), cmd = NULL;
         free(dup), dup = NULL;
         return(NULL);
     }
@@ -24,17 +24,17 @@ char **splitter(char *line)
     command = malloc (sizeof(char *) * (count + 1));
     if (!command)
     {
-        free(line), line = NULL;
+        free(cmd), cmd = NULL;
         return (NULL);
     }
-    token = strtok(line, DELIM);
+    token = strtok(cmd, DELIM);
     while (token)
     {
         command[i] = _strdup(token);
         token = strtok(NULL, DELIM);
         i++;
     }
-    free(line), line = NULL;
+    free(cmd), cmd = NULL;
     command [i] = NULL; 
     return(command);
 }
