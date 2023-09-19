@@ -1,13 +1,14 @@
 #include "shell.h"
-
 char **tokenizer(char *line)
 {
     char *token = NULL, *dup = NULL;
     char **command = NULL;
     int count = 0, i = 0;
+
     if (!line)
     return (NULL);
     dup = _strdup(line);
+
     token = strtok(dup, DELIM);
     if (token == NULL)
     {
@@ -21,12 +22,15 @@ char **tokenizer(char *line)
         token = strtok(NULL, DELIM);
     }
     free(dup), dup = NULL;
+
     command = malloc (sizeof(char *) * (count + 1));
     if (!command)
     {
         free(line), line = NULL;
         return (NULL);
     }
+
+
     token = strtok(line, DELIM);
     while (token)
     {
@@ -37,7 +41,3 @@ char **tokenizer(char *line)
     command [i] = NULL; 
     return(command);
 }
-    
- 
-
-

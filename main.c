@@ -19,24 +19,12 @@ int main(int argc, char **argv)
         {
             write(STDOUT_FILENO, "\n", 1);
            return (status);
+
         }
         command = tokenizer(line);
-        if (!command)
-        continue;
-
-       for (i = 0; command[i]; i++)
-       {
-        printf("%s\n", command[i]);
-        free(command[i]), command[i] = NULL;
-       }
-        free(command), command = NULL;
-
-
-
-
-
-
-        /*status = _execve(cmd, argv);*/
+          if (!command)
+           continue;
+        status = _execve(cmd, argv);
 
     }
 }

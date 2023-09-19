@@ -8,12 +8,16 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
-#define DELIM "\t\n"
+#include <fcntl.h>
+#define DELIM " \t\n"
 
 int main(int argc, char **argv);
-char **tokenizer(char *line);
-
 char *readline (void);
+char **tokenizer(char *line);
+extern char **environ;
+int _execute (char **command, char **argv);
+void freestring (char **array);
+
 
 char *_strdup(const char *s);
 
