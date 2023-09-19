@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
-​
+
 /**
  * _strrchr - Finds the last occurrence of a character in a string.
  * @str: The string to be searched.
@@ -12,7 +12,7 @@
  *
  * Return: A pointer to the last occurrence of the character
  */
-​
+
 char *_strrchr(const char *str, int ch)
 {
 char *last = NULL;
@@ -30,14 +30,14 @@ last = (char *) str;
 }
 return (last);
 }
-​
+
 /**
  * _basename - Returns the last component of a pathname.
  * @path: The path name to be parsed.
  *
  * Return: A pointer to the last component of the path name.
  */
-​
+
 char *_basename(char *path)
 {
 char *bsnm;
@@ -55,14 +55,14 @@ else
 return (bsnm + 1);
 }
 }
-​
+
 /**
  * _strdup - Duplicates a string.
  * @src: The string to be duplicated.
  *
  * Return: A pointer to the newly allocated duplicate string.
  */
-​
+
 char *_strdup(char *src)
 {
 size_t len = strlen(src) + 1;
@@ -74,14 +74,14 @@ return (NULL);
 _strcpy(dst, src);
 return (dst);
 }
-​
+
 /**
  * _strlen - Calculates the length of a string.
  * @str: The string whose length is to be determined.
  *
  * Return: The length of the string.
  */
-​
+
 int _strlen(char *str)
 {
 int length = 0;
@@ -92,14 +92,14 @@ str++;
 }
 return (length);
 }
-​
+
 /**
  * _atoi - convert a string to an integer
  * @str: the string to convert
  *
  * Return: the integer value of the string, or 0 if no valid digits were found
  */
-​
+
 int _atoi(const char *str)
 {
 int result = 0;
