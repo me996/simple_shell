@@ -1,7 +1,8 @@
 #include "shell.h"
 
-void freestring (char **array)
+void freecmd(char **array)
 {
+int i;
 if (!array)
 return;
 for (i = 0; array[i]; i++)

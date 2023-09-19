@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
     char *line = NULL, **command = NULL;
-    int i, status = 0;
+    int status = 0;
     (void) argc;
     (void) argv;
    
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
         command = tokenizer(line);
           if (!command)
            continue;
-        status = _execve(cmd, argv);
+        status = _execute(command, argv);
 
     }
 }

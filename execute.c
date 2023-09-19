@@ -1,6 +1,6 @@
 #include "shell.h" 
 
-int _execute (char *command, **argv)
+int _execute (char **command, char **argv)
 {
     pid_t child;
     int status;
@@ -10,14 +10,15 @@ int _execute (char *command, **argv)
         if (execve(command [0], command, environ) == -1)
         {
             perror(argv[0]);
-            freestring(command);
+            freecmd(command);
+            exit(127);
         }
      
     }
     else 
     {
         waitpid(child, &status, 0);
-        freestring(command);
+        freecmd(command);
     }
     return(WEXITSTATUS(status));
 }

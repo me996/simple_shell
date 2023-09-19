@@ -16,7 +16,7 @@ char *readline (void);
 char **tokenizer(char *line);
 extern char **environ;
 int _execute (char **command, char **argv);
-void freestring (char **array);
+void freecmd (char **array);
 
 
 char *_strdup(const char *s);
