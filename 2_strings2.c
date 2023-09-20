@@ -94,30 +94,32 @@ return (length);
 }
 
 /**
- * write_pid - Writes the process ID
+ * _atoi - convert a string to an integer
+ * @str: the string to convert
  *
- * Return: The number of characters written, or -1 on error.
+ * Return: the integer value of the string, or 0 if no valid digits were found
  */
-ssize_t write_pid(void)
+
+int _atoi(const char *str)
 {
-size_t i, j, k;
-char temp;
-pid_t pid = getpid();
-char pid_str[10];
-i = 0;
-do {
-pid_str[i++] = pid % 10 + '0';
-pid /= 10;
-}
-while (pid > 0 && i < sizeof(pid_str) - 1)
-;
-pid_str[i] = '\0';
-/* Reverse the string */
-for (j = 0, k = i - 1; j < k; j++, k--)
+int result = 0;
+int sign = 1;
+while (*str == ' ' || *str == '\t' || *str == '\n')
+str++;
+if (*str == '-')
 {
-temp = pid_str[j];
-pid_str[j] = pid_str[k];
-pid_str[k] = temp;
+sign = -1;
+str++;
 }
-return (write(STDOUT_FILENO, pid_str, i));
+else if (*str == '+')
+{
+str++;
 }
+while (*str >= '0' && *str <= '9')
+{
+result = result * 10 + (*str - '0');
+str++;
+}
+return (result *sign);
+}
+
