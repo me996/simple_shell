@@ -89,14 +89,13 @@ free(ptr);
 return (newptr);
 }
 
-
-
 /**
- * _getline - Read a line from a stream
- * @lineptr: Pointer to the buffer where the line will be stored
- * @n: Pointer to the size of the buffer
- * @stream: Pointer to the input stream to read from
- * Return: Number of characters read, or EOF
+ * _getline - Reads a line of input from a specified file stream.
+ * @lineptr: A pointer to a char pointer
+ * @n: A pointer to the size of the buffer.
+ * @stream: A pointer to the FILE structure
+ *
+ * Return: The number of characters read
  */
 
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
@@ -120,12 +119,19 @@ return (-1);
 }
 }
 buf = *lineptr;
+/*------  stream ------*/
 while ((c = _fgetc(stream)) != '\n' && c != EOF)
 {
 if (i + 1 >= *n)
 {
-if (!expandLine(lineptr, n, &buf, &i))
+*n += 256;
+*lineptr = _realloc(*lineptr, *n);
+if (*lineptr == NULL)
+{
+errno = ENOMEM;
 return (-1);
+}
+buf = *lineptr + i;
 }
 *buf++ = c;
 ++i;
@@ -133,4 +139,3 @@ return (-1);
 *buf = '\0';
 return (i ? i : EOF);
 }
-
