@@ -89,13 +89,14 @@ free(ptr);
 return (newptr);
 }
 
+
+
 /**
- * _getline - Reads a line of input from a specified file stream.
- * @lineptr: A pointer to a char pointer
- * @n: A pointer to the size of the buffer.
- * @stream: A pointer to the FILE structure
- *
- * Return: The number of characters read
+ * _getline - Read a line from a stream
+ * @lineptr: Pointer to the buffer where the line will be stored
+ * @n: Pointer to the size of the buffer
+ * @stream: Pointer to the input stream to read from
+ * Return: Number of characters read, or EOF
  */
 
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
@@ -119,23 +120,42 @@ return (-1);
 }
 }
 buf = *lineptr;
-/*------  stream ------*/
 while ((c = _fgetc(stream)) != '\n' && c != EOF)
 {
 if (i + 1 >= *n)
 {
-*n += 256;
-*lineptr = _realloc(*lineptr, *n);
-if (*lineptr == NULL)
-{
-errno = ENOMEM;
+if (!expandLine(lineptr, n, &buf, &i))
 return (-1);
-}
-buf = *lineptr + i;
 }
 *buf++ = c;
 ++i;
 }
 *buf = '\0';
 return (i ? i : EOF);
+}
+
+/**
+ * expandLine - Expand the line buffer by reallocating memory
+ * @lineptr: Pointer to the buffer where the line is stored
+ * @n: Pointer to the size of the buffer
+ * @buf: Pointer to the current position in the buffer
+ * @i: Pointer to the current index in the buffer
+ * Return: 1 if  successful , 0 if fails
+ */
+
+int expandLine(char **lineptr, size_t *n, char **buf, size_t *i)
+{
+size_t new_size = *n + 256;
+char *new_ptr = _realloc(*lineptr, new_size);
+if (new_ptr == NULL)
+{
+free(*lineptr);
+*lineptr = NULL;
+errno = ENOMEM;
+return (0);
+}
+*lineptr = new_ptr;
+*buf = *lineptr + *i;
+*n = new_size;
+return (1);
 }

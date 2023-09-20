@@ -13,25 +13,26 @@
  * @argc: no. of inputs
  *@argv: string array inputs
  */
-
 void processInput(int argc, char **argv)
 {
-int n = 0;
-char *args[arr_len], *command = NULL;
+int n = 0, i;
+char *args[arr_len] = {NULL}, *command = NULL;
 while (1)
 {
 printf(":) ");
 fflush(stdout);
-if (n > 0 || argc == 1)
+if (n > 0 || (argc == 1 && argv != NULL))
 {
 fillCommand(&command); /* get command filled */
 fillArgs(command, args); /* get args filled */
 }
-else
+else if (argc > 1)
 {/* get args second option*/
 fillArgs2(argv, args);
 n  = 1;
 }
+if (args[0] != NULL)
+{
 if (_strcmp(args[0], "exit") == 0)
 {/* built in commands */
 handleExit(args);
@@ -46,7 +47,18 @@ else
 executeCommand(args); /* child and parent processes */
 }
 }
-free(command);
+}
+if (command != NULL)
+{
+free(command), command = NULL;
+}
+for (i = 0; i < arr_len; i++)
+{
+if (args[i] != NULL)
+{
+free(args[i]), args[i] = NULL;
+}
+}
 }
 
 /**
@@ -58,6 +70,7 @@ void fillCommand(char **command)
 {
 ssize_t nread;
 size_t command_size = 0;
+
 nread = _getline(command, &command_size, stdin);
 if (nread == -1)
 {
@@ -70,6 +83,7 @@ if (nread > 0 && (*command)[nread - 1] == '\n')
 {
 (*command)[nread - 1] = '\0';
 }
+free(*command), *command = NULL;
 }
 
 /**

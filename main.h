@@ -8,6 +8,7 @@ extern char **environ;
 #define arr_len 500
 
 size_t _strcspn(char *str, char *set);
+int expandLine(char **lineptr, size_t *n, char **buf, size_t *i);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, const char *src);
 char *_strcat(char *dest, const char *src);
