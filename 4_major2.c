@@ -13,6 +13,7 @@
  * @command: The input command string.
  * @args: An array to store the extracted words.
  */
+
 void fillArgs(char *command, char **args)
 {
 char *mvptr = NULL;
@@ -66,46 +67,7 @@ env++;
 }
 }
 
-/**
- * executeCommand - Executes non-built-in commands.
- * @args: An array of command arguments.
- */
 
-void executeCommand(char **args)
-{
-int status;
-char *static_path, *loc, *dyn_path, file_path[arr_len], *mvptr = NULL;
-pid_t pid = fork();
-if (pid == -1)
-{
-perror("fork");
-exit(EXIT_FAILURE);
-}
-else if (pid == 0)
-{ /* child process */
-static_path = getenv("PATH");
-if (static_path != NULL)
-{
-dyn_path = _strdup(static_path);
-loc = _strtok(dyn_path, ":", &mvptr);
-while (loc != NULL)
-{
-_strcpy(file_path, loc);
-_strcat(file_path, "/");
-_strcat(file_path, _basename(args[0]));
-execve(file_path, args, environ);
-loc = _strtok(NULL, ":", &mvptr);
-}
-free(dyn_path);
-}
-handleCommandNotFound(args);
-exit(EXIT_FAILURE);
-}
-else
-{ /* parent process */
-waitpid(pid, &status, 0);
-}
-}
 
 /**
  * handleCommandNotFound - Handles the case when a command is not found.
