@@ -35,7 +35,11 @@ void fillArgs2(char **argv, char **args);
 void fillArgs(char *command, char **args);
 void handleExit(char **args);
 void handleEnv(void);
-void executeCommand(char **args);
 void handleCommandNotFound(char **args);
+
+
+void handleAccess(char **args);
+void executeCommand(char *file_path, char **args);
+
 
 #endif

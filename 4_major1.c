@@ -44,8 +44,9 @@ handleEnv();
 }
 else
 {
-executeCommand(args); /* child and parent processes */
+handleAccess(args); /* child and parent processes */
 }
+/*free(command);*/
 }
 }
 if (command != NULL)
