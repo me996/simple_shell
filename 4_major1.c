@@ -20,7 +20,7 @@ int n = 0;
 char *args[arr_len], *command = NULL;
 while (1)
 {
-printf(":) ");
+write(STDIN_FILENO, "$ ", 2);
 fflush(stdout);
 if (n > 0 || argc == 1)
 {
