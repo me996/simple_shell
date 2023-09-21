@@ -122,4 +122,3 @@ str++;
 }
 return (result *sign);
 }
-
