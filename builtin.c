@@ -15,8 +15,9 @@ void handle_built_in(char **input_cmd, char **argv, int *stat, int cpt)
 (void) argv;
 (void) cpt;
 if (_strcmp(input_cmd[0], "exit") == 0)
-exit_cmd(input_cmd, stat)
-else if (_strcmp(input_cmd[0], "env") == 0)
+exit_cmd(input_cmd, stat);
+else if
+(_strcmp(input_cmd[0], "env") == 0)
 printenv(input_cmd, stat);
 }
 void exit_cmd (char **input_cmd, int *stat)
