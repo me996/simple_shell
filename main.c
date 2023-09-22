@@ -29,6 +29,7 @@ if (!command)
 continue;
 if (built_in(command[0]))
 handle_built_in(command, argv, &status, cpt);
+else
 status = _execute(command, argv, cpt);
 }
 }
