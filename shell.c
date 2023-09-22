@@ -14,17 +14,23 @@
 
 #define DELIM " \t\n"
 int main (int argc, char **argv);
+char *_getpath(char *line);
 char *readcmd(void);
 int _strlen(char *s);
 char **tokenizer(char *cmd);
-int _execute(char **command, char **argv);
+int _execute(char **command, char **argv, int cpt);
 void freeleak(char **array);
+void printerror(char *name, char *cmd, int cpt);
+char *_itoa(int s);
+void reverse_string(char *s, int len);
 
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 char *_strdup(const char *str);
 extern char **environ;
+
+char *_getenv( char *var);
 
 
 #endif 

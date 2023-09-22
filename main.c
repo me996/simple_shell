@@ -9,7 +9,7 @@
 int main (int argc, char **argv)
 {
 char *cmd = NULL, **command = NULL;
-int status = 0;
+int status = 0, cpt = 0;
 (void) argc;
 
 
@@ -22,10 +22,11 @@ if (isatty(STDIN_FILENO))
 write(STDOUT_FILENO, "\n", 1);
 return (status);
 }
+cpt++;
 	
 command = tokenizer(cmd);
 if (!command)
 continue;
-status = _execute(command, argv);
+status = _execute(command, argv, cpt);
 }
 }

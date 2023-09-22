@@ -1,11 +1,9 @@
 #include "shell.h"
 /**
  * readcmd - read command from the stdin
- * @len: address of len var
- * @cmd: address of command line
- * @nread: cout the number of cmd read
- * return: NULL if an error occurs or if the input is empty.
- * 
+ * return: A pointer to a dynamically allocated string containing the user input if getline succeeds.
+NULL if getline encounters an error or if the input is empty.
+ *
 */
 char *readcmd(void)
 {
@@ -18,7 +16,7 @@ nread = getline(&cmd, &len, stdin);
 if (nread == -1)
 {
 free(cmd), cmd = NULL;
-return(NULL);
+return (NULL);
 }
-return(cmd);
+return (cmd);
 }
