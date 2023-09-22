@@ -23,6 +23,10 @@ void freeleak(char **array);
 void printerror(char *name, char *cmd, int cpt);
 char *_itoa(int s);
 void reverse_string(char *s, int len);
+int built_in(char *input_cmd);
+void handle_built_in(char **input_cmd, char **argv, int *stat, int cpt);
+void printenv (char **input_cmd, int *stat);
+void exit_cmd (char **input_cmd, int *stat);
 
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
