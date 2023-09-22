@@ -3,7 +3,6 @@
 
 /**
  * printerror - outputs an error message to stderr
- *
  * @name: A null-terminated string representing the name of the shell program
  * @cmd: A null-terminated string
  * @cpt: An integer representing the command's position in the command line
@@ -21,6 +20,12 @@ write(STDERR_FILENO, cmd, _strlen(cmd));
 write(STDERR_FILENO, message, _strlen(message));
 free(idx), idx = NULL;
 }
+/**
+ * _itoa - Convert an integer to a string.
+ * @s: The integer to convert.
+ *
+ * Return: A pointer to the converted string.
+ */
 char *_itoa(int s)
 {
 char buffer[10];
