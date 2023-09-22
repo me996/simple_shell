@@ -31,7 +31,7 @@ int i;
 for (i = 0; environ[i]; i++)
 {
 write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
-write(STDERR_FILENO, "\n", 1);
+write(STDOUT_FILENO, "\n", 1);
 }
 freeleak(input_cmd);
 (*stat) = 0;
